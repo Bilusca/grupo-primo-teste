@@ -28,3 +28,5 @@ $ yarn dev
 ```
 
 E acessar o app neste [link](http://localhost:5173/)
+
+### [Link da Aplicação online](https://simuladorinvestimento.netlify.app/)

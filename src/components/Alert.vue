@@ -21,7 +21,7 @@ const props = withDefaults(
 }
 
 .alert.default {
-  @apply bg-neutral-200;
+  background-color: rgba(246, 246, 246);
 }
 
 .alert.warning {
@@ -33,6 +33,6 @@ const props = withDefaults(
 }
 
 .alert.success {
-  @apply bg-emerald-200;
+  @apply bg-app-green;
 }
 </style>

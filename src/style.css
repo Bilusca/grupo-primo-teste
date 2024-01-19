@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply text-app-black bg-white font-raleway antialiased scroll-smooth;
+}

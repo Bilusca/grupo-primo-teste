@@ -1,7 +1,7 @@
 # Grupo Primo | Simulador de investimento
 
 Calculadore de rentabilidade de investimento demostrando os valores ganhos com a *Taxa Selic* e com a *Taxa de Retabilidade da Arca*.
-[Front do App](./project-images/app.png)
+![Front do App](./project-images/app.png)
 
 ## Tecnologias usadas:
 

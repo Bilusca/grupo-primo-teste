@@ -10,7 +10,8 @@
       :min="props.min"
       :max="props.max"
       :step="props.step"
-      v-model="inputVal" />
+      v-model="inputVal"
+      @input="handleChangeValue" />
     <div class="w-full text-center">
       <strong class="font-bold text-2xl lg:text-5xl">{{ isMonth ? inputVal : formatCurrency(inputVal) }} {{ isMonth ?
         'meses' : '' }}</strong>
@@ -18,7 +19,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, defineEmits } from 'vue';
 import { formatCurrency } from '@/utils/formatCurrency'
 
 type InputRangeProps = {
@@ -30,11 +31,21 @@ type InputRangeProps = {
   isMonth?: boolean
 }
 
+type InputRangeEmits = {
+  changeValue: [value: Record<string, number>]
+}
+
 const props = withDefaults(defineProps<InputRangeProps>(), {
   isMonth: false
 })
 
 const inputVal = ref(props.min)
+
+const emits = defineEmits<InputRangeEmits>()
+
+function handleChangeValue() {
+  emits('changeValue', { [props.name]: inputVal.value })
+}
 
 onMounted(() => {
   const slider = document.querySelector<HTMLInputElement>(`#${props.name}`);

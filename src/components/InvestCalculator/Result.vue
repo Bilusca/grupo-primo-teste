@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-12 flex-1">
     <div class="flex flex-col">
       <h2 class="mb-6 font-semibold text-xl text-[2rem]">Em 24 meses você teria</h2>
-      <span class="lg:text-[5.5rem] w-full mb-4 font-semibold text-[2rem]">r$ 1.0020,00</span>
+      <span class="lg:text-[5.5rem] w-full mb-4 font-semibold text-[2rem]">{{ formatCurrency(props.amount) }}</span>
       <div class="bg-emerald-400 w-full h-[0.375rem] rounded-md"></div>
     </div>
     <div class="flex flex-col w-full gap-6">
@@ -36,4 +36,7 @@
 <script setup lang="ts">
 import Alert from '@/components/Alert.vue'
 import Icon from '@/components/Icon/index.vue'
+import { formatCurrency } from '@/utils/formatCurrency';
+
+const props = defineProps<{ amount: number }>()
 </script>

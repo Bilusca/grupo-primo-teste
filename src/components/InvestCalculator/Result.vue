@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col gap-12 flex-1">
     <div class="flex flex-col">
-      <h2 class="mb-6 font-semibold text-xl text-[2rem]">Em 24 meses você teria com a Selic</h2>
+      <h2 class="mb-6 font-semibold text-xl text-[2rem]">Em {{ props.periodInvested }} meses você teria com a Selic</h2>
       <span class="lg:text-[5.5rem] w-full mb-4 font-semibold text-[2rem]">{{ formatCurrency(props.selicAmount) }}</span>
       <div class="bg-emerald-400 w-full h-[0.375rem] rounded-md"></div>
     </div>
     <div class="flex flex-col">
-      <h2 class="mb-6 font-semibold text-xl text-[2rem]">Em 24 meses você teria com a Arca</h2>
+      <h2 class="mb-6 font-semibold text-xl text-[2rem]">Em {{ props.periodInvested }} meses você teria com a Arca</h2>
       <span class="lg:text-[5.5rem] w-full mb-4 font-semibold text-[2rem]">{{ formatCurrency(props.arcaAmount) }}</span>
       <div class="bg-emerald-400 w-full h-[0.375rem] rounded-md"></div>
     </div>
@@ -14,13 +14,13 @@
       <Alert>
         <div class="space-x-4">
           <span class="uppercase tracking-[3.2px] font-semibold">Taxa Selic:</span>
-          <strong class="text-lg lg:text-2xl font-extrabold">9,25%</strong>
+          <strong class="text-lg lg:text-2xl font-extrabold">{{ TAX.SELIC }}%</strong>
         </div>
       </Alert>
       <Alert>
         <div class="space-x-4">
           <span class="uppercase tracking-[3.2px] font-semibold">Rentabilidade do Arca:</span>
-          <strong class="text-lg lg:text-2xl font-extrabold">18% a.a.</strong>
+          <strong class="text-lg lg:text-2xl font-extrabold">{{ TAX.ARCA }}% a.a.</strong>
         </div>
       </Alert>
     </div>
@@ -42,6 +42,7 @@
 import Alert from '@/components/Alert.vue'
 import Icon from '@/components/Icon/index.vue'
 import { formatCurrency } from '@/utils/formatCurrency';
+import { TAX } from '@/constants/tax'
 
-const props = defineProps<{ arcaAmount: number, selicAmount: number }>()
+const props = defineProps<{ arcaAmount: number, selicAmount: number, periodInvested: number }>()
 </script>
